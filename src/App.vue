@@ -10,7 +10,6 @@ import NavBar from './components/TheNavbar.vue'
 import LateralBar from './components/TheLateralBar.vue'
 import AuthService from './auth/AuthService'
 import axios from 'axios'
-const API_URL = 'http://localhost:8000'
 
 const auth = new AuthService()
 
@@ -49,7 +48,7 @@ export default {
       auth.logout()
     },
     privateMessage () {
-      const url = `${API_URL}/api/private/`
+      const url = `${process.env.VUE_APP_BASE_URL}/api/private/`
       return axios.get(url, {headers: {Authorization: `Bearer ${auth.getAuthToken()}`}}).then((response) => {
         console.log(response.data)
         this.message = response.data || ''

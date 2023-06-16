@@ -39,8 +39,7 @@ export default {
 	},
 	methods: {
 		async getApiData() {
-			const API_URL = 'http://127.0.0.1:8000'
-			const url = `${API_URL}/ingredients`
+			const url = `${process.env.VUE_APP_BASE_URL}/ingredients`
 			const T = this;
 			var myHeaders = new Headers();
 			myHeaders.append("Access-Control-Allow-Origin", "*");

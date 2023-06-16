@@ -17,7 +17,6 @@
 
 <script>
 import CocktailCard from "@/components/CocktailCard.vue"
-const API_URL = 'http://127.0.0.1:8000'
 
 export default {
 	components: { CocktailCard },
@@ -63,7 +62,7 @@ export default {
 		},
 
 		async getIngredients (cocktail) {
-      const url = `${API_URL}/cocktails/${cocktail.id}/ingredients`;
+      const url = `${process.env.VUE_APP_BASE_URL}/cocktails/${cocktail.id}/ingredients`;
 			var myHeaders = new Headers();
 			myHeaders.append("Access-Control-Allow-Origin", "*");
 
@@ -96,7 +95,7 @@ export default {
 		},
 
 		async getCocktails(){
-      const url = `${API_URL}/cocktails`
+      const url = `${process.env.VUE_APP_BASE_URL}/cocktails`
 			var myHeaders = new Headers();
 			myHeaders.append("Access-Control-Allow-Origin", "*");
 
